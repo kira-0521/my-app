@@ -1,7 +1,7 @@
+import { Container } from '@mui/material'
 import { ReactNode } from 'react'
 
 import PageHeader from './PageHeader'
-import { Container } from '@mui/material'
 
 type Props = {
   children: ReactNode
