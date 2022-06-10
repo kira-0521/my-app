@@ -1,12 +1,9 @@
-import { Container } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { MouseEventHandler } from 'react'
 
 import { ThemeTypes } from '@/@types/view'
 import Layout from '@/components/layouts/Layout'
-import styles from '@/styles/Home.module.css'
 
 type Props = {
   toggleTheme: MouseEventHandler<HTMLButtonElement>
