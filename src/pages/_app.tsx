@@ -21,7 +21,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const cacheTheme = localStorage.getItem('theme') as ThemeTypes
-    setActiveTheme(getActiveTheme(cacheTheme ? cacheTheme : selectedTheme))
+    setSelectedTheme((curTheme) => (cacheTheme ? cacheTheme : curTheme))
+  }, [])
+
+  useEffect(() => {
+    setActiveTheme(getActiveTheme(selectedTheme))
   }, [selectedTheme])
 
   return (
