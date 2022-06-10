@@ -1,13 +1,19 @@
 import { Container } from '@mui/material'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { MouseEventHandler } from 'react'
 
+import { ThemeTypes } from '@/@types/view'
 import Layout from '@/components/layouts/Layout'
 import styles from '@/styles/Home.module.css'
 
-import type { NextPage } from 'next'
+type Props = {
+  toggleTheme: MouseEventHandler<HTMLButtonElement>
+  currentTheme: ThemeTypes
+}
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = ({ toggleTheme, currentTheme }: Props) => {
   return (
     <>
       <Head>
@@ -16,7 +22,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Layout>main</Layout>
+      <Layout toggleTheme={toggleTheme} currentTheme={currentTheme}>
+        main
+      </Layout>
     </>
   )
 }
