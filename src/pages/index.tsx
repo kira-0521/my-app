@@ -4,6 +4,7 @@ import { MouseEventHandler } from 'react'
 
 import { ThemeTypes } from '@/@types/view'
 import Layout from '@/components/layouts/Layout'
+import { Hero } from '@/components/sections/Hero'
 
 type Props = {
   toggleTheme: MouseEventHandler<HTMLButtonElement>
@@ -20,7 +21,7 @@ const Home: NextPage<Props> = ({ toggleTheme, currentTheme }: Props) => {
       </Head>
 
       <Layout toggleTheme={toggleTheme} currentTheme={currentTheme}>
-        main
+        <Hero />
       </Layout>
     </>
   )
