@@ -1,16 +1,19 @@
 import { Container } from '@mui/material'
-import { ReactNode } from 'react'
+import { ReactNode, MouseEventHandler } from 'react'
 
 import { PageHeader } from './PageHeader'
+import { ThemeTypes } from '@/@types/view'
 
 type Props = {
   children: ReactNode
+  toggleTheme: MouseEventHandler<HTMLButtonElement>
+  currentTheme: ThemeTypes
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, toggleTheme, currentTheme }: Props) {
   return (
     <>
-      <PageHeader />
+      <PageHeader toggleTheme={toggleTheme} currentTheme={currentTheme} />
       <Container maxWidth='lg'>main</Container>
     </>
   )
