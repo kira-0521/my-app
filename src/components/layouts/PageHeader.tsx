@@ -76,7 +76,11 @@ export const PageHeader: FC<Props> = ({ toggleTheme, currentTheme }: Props) => {
               </Button>
             ))}
             <Button onClick={toggleTheme}>
-              {currentTheme === 'light' ? <Brightness5Icon /> : <DarkModeIcon />}
+              {currentTheme === 'light' ? (
+                <Brightness5Icon sx={{ color: '#f37e21' }} />
+              ) : (
+                <DarkModeIcon sx={{ color: '#eaf321' }} />
+              )}
             </Button>
           </Box>
         </Toolbar>
