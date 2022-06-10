@@ -14,7 +14,9 @@ export default function Layout({ children, toggleTheme, currentTheme }: Props) {
   return (
     <>
       <PageHeader toggleTheme={toggleTheme} currentTheme={currentTheme} />
-      <Container maxWidth='lg'>main</Container>
+      <Container maxWidth='xl' sx={{ paddingTop: '68.5px' }}>
+        {children}
+      </Container>
     </>
   )
 }

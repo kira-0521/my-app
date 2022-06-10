@@ -21,7 +21,7 @@ export const PageHeader: FC<Props> = ({ toggleTheme, currentTheme }: Props) => {
   }
 
   return (
-    <AppBar position='static' sx={{ backgroundColor: 'background.default' }}>
+    <AppBar position='fixed' sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
       <Box maxWidth='xl'>
         <Toolbar sx={{ paddingX: { md: '48px' }, justifyContent: 'space-between' }}>
           <Stack
