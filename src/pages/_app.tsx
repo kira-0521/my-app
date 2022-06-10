@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { ThemeProvider } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useState, useEffect, useCallback, MouseEventHandler } from 'react'
@@ -22,6 +23,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const cacheTheme = localStorage.getItem('theme') as ThemeTypes
     setSelectedTheme((curTheme) => (cacheTheme ? cacheTheme : curTheme))
+
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles) {
+      jssStyles.parentElement?.removeChild(jssStyles)
+    }
   }, [])
 
   useEffect(() => {
@@ -35,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
       </Head>
       <ThemeProvider theme={activeTheme}>
+        <CssBaseline />
         <Component {...pageProps} toggleTheme={toggleTheme} currentTheme={selectedTheme} />
       </ThemeProvider>
     </>

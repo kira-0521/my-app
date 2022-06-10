@@ -1,7 +1,7 @@
 import Brightness5Icon from '@mui/icons-material/Brightness5'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt'
-import { AppBar, Box, Typography, Container, Toolbar, Button, Stack } from '@mui/material'
+import { AppBar, Box, Typography, Toolbar, Button, Stack } from '@mui/material'
 import React, { MouseEventHandler, FC, useState } from 'react'
 
 import { ThemeTypes } from '@/@types/view'
@@ -23,7 +23,7 @@ export const PageHeader: FC<Props> = ({ toggleTheme, currentTheme }: Props) => {
   return (
     <AppBar position='static' sx={{ backgroundColor: 'background.default' }}>
       <Box maxWidth='xl'>
-        <Toolbar sx={{ paddingX: { md: '48px' } }}>
+        <Toolbar sx={{ paddingX: { md: '48px' }, justifyContent: 'space-between' }}>
           <Stack
             spacing={1}
             direction={'row'}
@@ -53,29 +53,31 @@ export const PageHeader: FC<Props> = ({ toggleTheme, currentTheme }: Props) => {
             </Typography>
           </Stack>
 
-          <Box
-            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={
-                  page === 'Send Me'
-                    ? {
-                        my: 2,
-                        ml: 1,
-                        color: 'white',
-                        display: 'block',
-                        backgroundColor: 'primary.main',
-                      }
-                    : { my: 2, color: 'text.primary', display: 'block' }
-                }
-              >
-                {page}
-              </Button>
-            ))}
-            <Button onClick={toggleTheme}>
+          <Box sx={{ display: 'flex' }}>
+            <Box
+              sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}
+            >
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={
+                    page === 'Send Me'
+                      ? {
+                          my: 2,
+                          ml: 1,
+                          color: 'white',
+                          display: 'block',
+                          backgroundColor: 'primary.main',
+                        }
+                      : { my: 2, color: 'text.primary', display: 'block' }
+                  }
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
+            <Button onClick={toggleTheme} sx={{ justifyContent: 'flex-end' }}>
               {currentTheme === 'light' ? (
                 <Brightness5Icon sx={{ color: '#f37e21' }} />
               ) : (
